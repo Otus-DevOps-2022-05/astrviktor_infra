@@ -25,4 +25,6 @@ ssh someinternalhost
 ```
 bastion_IP = 51.250.72.46
 someinternalhost_IP = 10.128.0.16
+testapp_IP = 51.250.84.60
+testapp_port = 9292
 ```
