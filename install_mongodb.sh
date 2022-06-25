@@ -1,10 +1,20 @@
 #!/bin/bash
-echo "deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
-wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
-sudo apt update
-sudo apt -y install mongodb-org
-sudo systemctl start mongod
+
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
 sudo systemctl enable mongod
+sudo systemctl start mongod
+
+#echo "deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+#wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+#sudo apt update
+#sudo apt -y install mongodb-org
+#sudo systemctl start mongod
+#sudo systemctl enable mongod
 
 #sudo apt-get install -y mongodb
 #sudo systemctl start mongodb
@@ -19,6 +29,7 @@ sudo systemctl enable mongod
 #  --restart always \
 #mongo:4.2
 
+#sudo ufw disable
 #sudo apt install -y git
 #sudo apt install -y openvpn
 #sudo apt install -y python
@@ -34,3 +45,5 @@ sudo systemctl enable mongod
 #sudo apt-get install -y mongodb-org
 #sudo systemctl start mongod
 #sudo systemctl enable mongod
+
+#!/bin/sh
