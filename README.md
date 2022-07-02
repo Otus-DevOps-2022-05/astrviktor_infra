@@ -66,3 +66,14 @@ yc compute instance create \
 testapp_IP = 51.250.82.139
 testapp_port = 9292
 ```
+## ДЗ 5: Сборка образов VM при помощи Packer
+
+Валидация конфигурации
+```
+packer validate -var-file=variables.json ubuntu16.json
+```
+
+Запуск сборки
+```
+packer build -var-file=variables.json ubuntu16.json
+```
