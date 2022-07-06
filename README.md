@@ -77,3 +77,19 @@ packer validate -var-file=variables.json ubuntu16.json
 ```
 packer build -var-file=variables.json ubuntu16.json
 ```
+
+## ДЗ 6: Практика IaC с использованием Terraform
+Подготовка инфраструктуры с помощью Terraform:
+1. Перейти в папку **terraform**
+2. Скопировать **terraform.tfvars.example** в **terraform.tfvars** и подставить нужные значения
+3. Запустить командой `terraform apply --auto-approve`
+4. Удалить командой `terraform destroy`
+
+Выполнено дополнительное задание с созданием балансировщика
+
+В выходных переменных есть адреса инстанса и балансировщика
+
+Зайти через браузер
+```
+http://IP_инстанса:9292 или http://IP_балансировщика:9292
+```
