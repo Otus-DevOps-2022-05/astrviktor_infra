@@ -93,3 +93,37 @@ packer build -var-file=variables.json ubuntu16.json
 ```
 http://IP_инстанса:9292 или http://IP_балансировщика:9292
 ```
+
+## ДЗ 7: Принципы организации инфраструктурного кода и работа над инфраструктурой в команде на примере Terraform
+
+Запуск сборки образов "reddit-app-base" и "reddit-db-base"
+```
+packer build -var-file=variables.json app.json
+packer build -var-file=variables.json db.json
+```
+
+Создание файлов **app.tf**, **db.tf**, **vpc.tf**, меняем **main.tf**
+для того чтобы поднимать отдельные инстансы на приложение и базу данных
+
+Нужно проверить работоспособность:
+```
+terraform apply
+terraform destroy
+```
+
+### Перевод на модульную струкутру
+
+Загрузка модулей:
+```
+terraform get
+```
+Нужно проверить работоспособность:
+```
+terraform apply
+terraform destroy
+```
+### Перевод на окружения stage и prod
+
+Перенос файлам по папкам stage и prod, исправление путей к модулям
+
+Загрузка модулей и проверка работоспособности
