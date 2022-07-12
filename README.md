@@ -127,3 +127,36 @@ terraform destroy
 Перенос файлам по папкам stage и prod, исправление путей к модулям
 
 Загрузка модулей и проверка работоспособности
+
+## ДЗ 8: Управление конфигурацией. Основные DevOps инструменты. Знакомство с Ansible
+
+Нужно выполнить playbook
+```
+ansible-playbook clone.yml
+```
+В результате изменений нет:
+```
+appserver                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+Изменений не было, так как директория **reddit** уже есть
+
+Затем нужно удалить папку **reddit** и заново выполнить playbook
+```
+ansible app -m command -a 'rm -rf ~/reddit'
+ansible-playbook clone.yml
+```
+В результате изменения были:
+```
+appserver                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
+##### inventory.json
+
+Для генерации файла **inventory.json** выполнить:
+```
+python inventory.py
+```
+Для выполнения ansible с файлом **inventory.json** выполнить:
+```
+ansible all -m ping -i inventory.json
+```
