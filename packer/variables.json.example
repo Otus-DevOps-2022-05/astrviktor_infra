@@ -1,5 +1,5 @@
 {
-  "service_account_key_file": "key.json",
+  "service_account_key_file": "",
   "folder_id": "qwertyasdfghzxcvbn",
   "source_image_family": "ubuntu-1604-lts",
   "subnet_id": "zxcvbnmasdfghjqwerty"
