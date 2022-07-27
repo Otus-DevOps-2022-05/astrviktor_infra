@@ -160,3 +160,20 @@ python inventory.py
 ```
 ansible all -m ping -i inventory.json
 ```
+
+## ДЗ 9: Деплой и управление конфигурацией с Ansible
+
+В процессе выполнения ДЗ было сделано
+
+1. Создание плейбука с одним сценарием, использование шаблона, переменных, Handlers
+2. Создание одного плейбука с несколькими сценариями
+3. Создание нескольких плейбуков
+4. Настройка и деплой с помощью ansible
+5. Изменение провиженинга в packer на ansible, обновление образов
+
+Для пересборки packer нужно выполнить:
+
+```
+packer build -var-file=packer/variables.json packer/app.json
+packer build -var-file=packer/variables.json packer/db.json
+```
