@@ -177,3 +177,18 @@ ansible all -m ping -i inventory.json
 packer build -var-file=packer/variables.json packer/app.json
 packer build -var-file=packer/variables.json packer/db.json
 ```
+
+## ДЗ 10: Ansible: работа с ролями и окружениями
+
+В процессе выполнения ДЗ было сделано
+
+1. Перенос созданных плейбуков в раздельные роли (шаблон через ansible-galaxy init)
+2. Описание окружений stage и prod
+3. Использование коммьюнити роли nginx - jdauphant.nginx
+4. Использование Ansible Vault для безопасной работы с приватными данными
+
+Для проверки нужно выполнить:
+```
+ansible-playbook -i environments/stage/inventory playbooks/site.yml --check
+ansible-playbook -i environments/stage/inventory playbooks/site.yml
+```
