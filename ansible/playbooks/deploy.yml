@@ -2,6 +2,15 @@
 - name: Deploy App
   hosts: app
   tasks:
+#    - name: Install git
+#      become: true
+#      apt: "name={{ item }} state=present"
+#      with_items:
+#        - git
+#      apt:
+#        name: git
+#        state: present
+#        update_cache: yes
 
     - name: Fetch the latest version of application code
       git:
