@@ -224,4 +224,16 @@ vagrant status
 ```
 # Инициализация сценария
 molecule init scenario -r db -d delegated default
+
+# Создание VM для проверки роли
+molecule create
+
+# Список созданных инстансов для molecule
+molecule list
+
+# Применение плейбука
+molecule converge
+
+# Прогон тестов
+molecule verify
 ```
