@@ -1,4 +1,7 @@
 galaxy_info:
+  role_name: test
+  namespace: test
+
   author: your name
   description: your role description
   company: your company (optional)

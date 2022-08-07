@@ -1,0 +1,36 @@
+---
+# Добавим ключ репозитория для последующей работы с ним
+- name: Add APT key
+  apt_key:
+    id: EA312927
+    keyserver: keyserver.ubuntu.com
+  tags: install
+
+#- name: Add an Apt signing key, uses whichever key is at the URL
+#  become: true
+#  ansible.builtin.apt_key:
+#    url: https://www.mongodb.org/static/pgp/server-4.4.asc
+#    state: present
+#  tags: install
+
+# Подключаем репозиторий с пакетами mongodb
+- name: Add APT repository
+  apt_repository:
+    repo: deb http://mirrors.aliyun.com/mongodb/apt/ubuntu xenial/mongodb-org/4.4 multiverse
+    state: present
+  tags: install
+
+# Выполним установку пакета
+- name: Install mongodb package
+  apt:
+    name: mongodb-org
+    allow_unauthenticated: True
+    state: present
+  tags: install
+
+# Включаем сервис
+- name: Configure service supervisor
+  systemd:
+    name: mongod
+    enabled: yes
+  tags: install
