@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+#driver:
+#  name: delegated
+#platforms:
+#  - name: instance
+#provisioner:
+#  name: ansible
+verifier:
+  name: ansible
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+#lint:
+#  name: yamllint
+platforms:
+  - name: instance
+    box: ubuntu/xenial64
+provisioner:
+  name: ansible
+#  lint:
+#    name: ansible-lint

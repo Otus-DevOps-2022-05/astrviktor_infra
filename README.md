@@ -192,3 +192,48 @@ packer build -var-file=packer/variables.json packer/db.json
 ansible-playbook -i environments/stage/inventory playbooks/site.yml --check
 ansible-playbook -i environments/stage/inventory playbooks/site.yml
 ```
+
+## ДЗ 11: Разработка и тестирование Ansible ролей и плейбуков. Локальная разработка с Vagrant
+
+В процессе выполнения ДЗ было сделано
+1. Установка Vagrant
+2. Изменение и параметризация ролей Ansible
+3. Тестирование с помощью Molecule
+
+Vagrant предложил поменять сеть на Ranges: 192.168.56.0/21, увеличил память до 2Gb
+
+Команды Vargant:
+
+```
+# Проверка версии
+vagrant -v
+
+# создание VM по Vagrantfile
+vagrant up
+
+# Удаление VM
+vagrant destroy -f
+
+# Информация
+vagrant box list
+vagrant status
+```
+
+Команды Molecule:
+
+```
+# Инициализация сценария
+molecule init scenario -r db -d delegated default
+
+# Создание VM для проверки роли
+molecule create
+
+# Список созданных инстансов для molecule
+molecule list
+
+# Применение плейбука
+molecule converge
+
+# Прогон тестов
+molecule verify
+```
